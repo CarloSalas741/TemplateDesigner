@@ -1,0 +1,19 @@
+@mixin background($url){
+
+    background: url($url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding-top: 200px;
+    padding-bottom: 300px;
+
+}
+
+@mixin banner-style($font-size){
+    color: $secondary-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    font-size: $font-size;
+    text-align: center;
+}

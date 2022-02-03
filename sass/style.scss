@@ -1,0 +1,384 @@
+@import "base/variables";
+@import "base/init";
+@import "layout/layout";
+@import "theme/header";
+@import "theme/footer";
+@import "modules/modules";
+
+@import "mixins/mixins";
+
+.banner{
+    
+    @include background("../assets/banner-bg.jpg");
+
+    padding-top: 200px;
+    padding-bottom: 300px;
+
+    h1{
+        @include banner-style(50);
+        span{
+            color: $main-color;
+        }
+
+    }
+
+    p{
+        @include banner-style(1em);
+    }
+
+    a{
+        display: block;
+        color: $main-color;
+        text-align: center;
+        background-color: $secondary-color;
+        width: 150px;
+        margin: 0 auto;
+        padding: 0.7rem 0.5rem;
+        border-radius: 0.30rem;
+        font-weight: 700px;
+    }
+}
+
+.form-container{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    label{
+        margin-bottom: 10px;
+        font-weight: bold;
+        display: block;
+    }
+
+    .input-control{
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    @media screen and (min-width: 600px){
+        max-width: 540px;
+    }
+
+    @media screen and (min-width: 1000px){
+        max-width: 900px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        fieldset{
+            margin-right: 20px;
+        }
+
+        button{
+            width: 100%;
+        }
+    }
+
+}
+
+
+
+.form{
+    padding-left: 23px;
+    padding-right: 23px;
+    margin-top: -150px;
+}
+
+.form-container{
+    background: $secondary-color;
+    border-radius: 0.30rem;
+    padding: 23px;
+    box-shadow: 0 0 3px 2px #2e2e2e1a;
+
+    @media screen and (min-width: 600px){
+        padding: 43px;
+    }
+
+}
+
+.btn{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.explore-work, .trending, .contact{
+
+    padding: 23px 23px;
+    h2{
+        margin-bottom:1em;
+        em{
+            font-style: normal;
+            color: $main-color;
+            position: relative;
+            padding-left: 100px;
+            &::before{
+                content: '';
+                width: 80px;
+                height: 2px;
+                background-color: $main-color;
+                position: absolute;
+                left: 0;
+                top: 22px;
+            }
+        }
+     
+    }
+}
+
+.explore-image{
+
+    margin-bottom: 1.5rem;
+    img{
+        width: 100%;
+        border-radius: .30rem;
+    }
+}
+
+.explore-container{
+    svg{
+        color: grey;
+    }
+}
+
+.right-content{
+    ul{
+        li{
+            margin-bottom: 60px;
+        }
+    }
+
+    h3{
+        border-bottom: 2px solid rgba(128, 128, 128, 0.144);
+        padding-bottom: 1rem;
+        margin-bottom: 0.8rem;
+        font-size: 20px;
+    }
+
+    h4{
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
+
+    em, span{
+        display: block;
+        height: 50px;
+    }
+
+    em{
+        font-style: normal;
+    }
+
+    a{
+        font-size: 17px;
+        color: black;
+        font-weight: 900px; 
+    }
+}
+
+.right-image{
+    display: none;
+}
+
+.trending{
+    p{
+        margin-bottom: 2rem;
+    }    
+}
+
+.description p ~ a{
+    text-align: center;
+    width: 150px;
+    font-size: 14px;
+}
+
+.contact{
+  
+    @include background("../assets/contact-us-bg.jpg");
+
+    padding: 63px 23px;
+    margin-bottom: 2rem;
+}
+
+.contact-form{
+    
+    .form-container{
+        box-shadow: none;
+        margin-bottom: 2rem;
+    }
+
+    .input-control{
+        margin-bottom: 15px;
+    }
+
+    textarea{
+        min-height: 120px;
+        height:120px;
+    }
+}
+
+
+
+
+// 1280+ Screen Resolution
+@media screen and (min-width: 1000px){
+
+    .banner{
+        h1{
+            font-size: 4rem;
+        }
+
+        p{
+            font-size: 2rem;
+        }
+    }
+    
+    .explore-image{
+        width: 50%;
+        margin-right: 30px;
+    }
+
+    .explore-container{
+        display: flex;
+    }
+
+    .right-image{
+        display: inline-block;
+        position: relative;
+
+        &::after{
+            content: '';
+            width: 400px;
+            height: 300px;
+            right: -400px;
+            top: 50%;
+            position: absolute;
+            transform: translateY(-50%);
+            background-image: url(../assets/whats-trending-right-image.png);
+        }
+
+        .thumb{
+            position: relative;
+
+            //apply hover effect
+            &:hover{
+
+                .hover-effect{
+                    opacity: 1;
+                
+                .inner-content{
+                    h4{
+                        transform: translateX(0px);
+                    }
+
+                    span{
+                        transform: translateX(0px);
+                    }
+                }
+                  
+                }
+            }
+
+            .hover-effect{
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom:0;
+                background-color: $main-color-opacity;
+                opacity: 0;
+                transition: all .5s;
+
+
+                .inner-content{
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                    transform: translateY(-50%);
+                    top: 50%;
+                    color: $secondary-color;
+                    h4{
+                        a{
+                            color: $secondary-color;
+                        }
+                        margin-bottom: 30px;
+                        text-transform: uppercase;
+                        transform: translateX(-30px);
+                        transition: all .5s;
+                    }
+
+                    span{
+                        display: block;
+                        transform: translateX(30px);
+                        transition: all .5s;
+                    }
+                }
+            }
+        }
+    } // Right image
+
+    .trending, .explore-work, .contact{
+        padding: 23px 73px;
+    }
+
+    .trending{
+
+      
+
+        h2{
+            line-height: 28px;
+        }
+        .trending-container{
+
+            display: flex;
+            overflow: hidden;
+
+            .description{
+                flex-basis: 0 0 auto;
+                width: 50%;
+                padding: 0 2rem;
+                p{
+                    line-height: 28px;
+                }
+            }
+
+            .right-image{
+                flex-basis: 0 0 auto;
+                // width: 270px;
+            }
+        }
+
+    }
+
+    .contact{
+        .container{
+            display: flex;
+
+            form{
+
+               
+                textarea{
+                    width: 100% !important;
+                }
+
+                h2{
+                    width: 100%;
+                }
+
+                .form-container{
+
+                    .input-control{
+                        width: 47.7%;
+                        margin-right: 10px;
+                    }
+
+                }
+
+              
+            }
+
+            .map{
+                flex: 0 0 auto;
+                width: 50%;
+            }
+        }
+    }
+
+}

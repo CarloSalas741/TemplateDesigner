@@ -1,0 +1,61 @@
+
+.footer-about{
+    text-align: center;
+    p,img{
+        margin-bottom: 2rem;
+    }
+}
+
+.footer-info{
+
+    .info-content{
+
+        p,li,a{
+            color: $grey-color;
+        }
+    }
+
+}
+
+.subscribe-newsletter{
+    form{
+
+        input[type="email"]{
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        button{
+            border: none;
+            background: none;
+            svg{
+                color: $grey-color;
+                vertical-align: middle;
+            }
+        }
+
+    }
+}
+
+.sub-footer{
+    text-align: center;
+
+    p{
+        margin-bottom: 2rem;
+        line-height: 28px;
+    }
+
+    a{
+        color: $main-color;
+    }
+}
+
+.top-link{
+    text-align: center;
+
+    a{
+        color: $main-color;
+    }
+}
+
